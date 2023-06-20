@@ -10,8 +10,14 @@ import (
 func (k msgServer) CreateAuthor(goCtx context.Context, msg *types.MsgCreateAuthor) (*types.MsgCreateAuthorResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// TODO: Handling the message
-	_ = ctx
+	var author = types.Author{
+		Name:    msg.Name,
+		Bookname: msg.Bookname,
+	}
 
-	return &types.MsgCreateAuthorResponse{}, nil
+	id := k.AppendAuthor(ctx, author)
+
+	return &types.MsgCreateAuthorResponse{
+		Id: id,
+	}, nil
 }

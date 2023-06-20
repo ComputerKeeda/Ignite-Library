@@ -17,3 +17,11 @@ const (
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
+
+const (
+    AuthorKey = "Author/value/"
+)
+
+const (
+    AuthorCountKey = "Author/count/"
+)
