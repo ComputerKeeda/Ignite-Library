@@ -2,7 +2,6 @@ package keeper
 
 import (
 	"context"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"library/x/library/types"
 )
@@ -11,7 +10,7 @@ func (k msgServer) CreateAuthor(goCtx context.Context, msg *types.MsgCreateAutho
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	var author = types.Author{
-		Name:    msg.Name,
+		Name:     msg.Name,
 		Bookname: msg.Bookname,
 	}
 

@@ -209,42 +209,144 @@ func (m *QueryListPostResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+type QueryListAuthorRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryListAuthorRequest) Reset()         { *m = QueryListAuthorRequest{} }
+func (m *QueryListAuthorRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryListAuthorRequest) ProtoMessage()    {}
+func (*QueryListAuthorRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c3a35cedc9a228e0, []int{4}
+}
+func (m *QueryListAuthorRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryListAuthorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryListAuthorRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryListAuthorRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryListAuthorRequest.Merge(m, src)
+}
+func (m *QueryListAuthorRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryListAuthorRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryListAuthorRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryListAuthorRequest proto.InternalMessageInfo
+
+func (m *QueryListAuthorRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryListAuthorResponse struct {
+	Author     []Author            `protobuf:"bytes,1,rep,name=author,proto3" json:"author"`
+	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryListAuthorResponse) Reset()         { *m = QueryListAuthorResponse{} }
+func (m *QueryListAuthorResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryListAuthorResponse) ProtoMessage()    {}
+func (*QueryListAuthorResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c3a35cedc9a228e0, []int{5}
+}
+func (m *QueryListAuthorResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryListAuthorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryListAuthorResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryListAuthorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryListAuthorResponse.Merge(m, src)
+}
+func (m *QueryListAuthorResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryListAuthorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryListAuthorResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryListAuthorResponse proto.InternalMessageInfo
+
+func (m *QueryListAuthorResponse) GetAuthor() []Author {
+	if m != nil {
+		return m.Author
+	}
+	return nil
+}
+
+func (m *QueryListAuthorResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "library.library.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "library.library.QueryParamsResponse")
 	proto.RegisterType((*QueryListPostRequest)(nil), "library.library.QueryListPostRequest")
 	proto.RegisterType((*QueryListPostResponse)(nil), "library.library.QueryListPostResponse")
+	proto.RegisterType((*QueryListAuthorRequest)(nil), "library.library.QueryListAuthorRequest")
+	proto.RegisterType((*QueryListAuthorResponse)(nil), "library.library.QueryListAuthorResponse")
 }
 
 func init() { proto.RegisterFile("library/library/query.proto", fileDescriptor_c3a35cedc9a228e0) }
 
 var fileDescriptor_c3a35cedc9a228e0 = []byte{
-	// 399 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x52, 0xbf, 0x4e, 0xe3, 0x30,
-	0x18, 0x4f, 0xaa, 0xbb, 0xe8, 0xe4, 0x1b, 0x4e, 0xf2, 0x15, 0x15, 0x42, 0x95, 0xa2, 0x00, 0x05,
-	0x31, 0xd8, 0x6a, 0x11, 0x0f, 0x40, 0x07, 0x58, 0x3a, 0x94, 0x8c, 0x0c, 0x20, 0x07, 0x59, 0x21,
-	0x52, 0x1b, 0xbb, 0xb1, 0x8b, 0xe8, 0xc0, 0xc2, 0x13, 0x80, 0x78, 0xa9, 0x8e, 0x95, 0x58, 0x98,
-	0x10, 0x6a, 0x79, 0x0c, 0x06, 0x54, 0xdb, 0x81, 0x36, 0x6d, 0xe9, 0xe4, 0xc8, 0xdf, 0xef, 0xef,
-	0xe7, 0x80, 0xcd, 0x76, 0x1c, 0xa6, 0x24, 0xed, 0xe3, 0xec, 0xec, 0xf6, 0x68, 0xda, 0x47, 0x3c,
-	0x65, 0x92, 0xc1, 0x7f, 0xe6, 0x12, 0x99, 0xd3, 0x2d, 0x46, 0x2c, 0x62, 0x6a, 0x86, 0x27, 0x5f,
-	0x1a, 0xe6, 0x96, 0x23, 0xc6, 0xa2, 0x36, 0xc5, 0x84, 0xc7, 0x98, 0x24, 0x09, 0x93, 0x44, 0xc6,
-	0x2c, 0x11, 0x66, 0x7a, 0x70, 0xc5, 0x44, 0x87, 0x09, 0x1c, 0x12, 0x41, 0xb5, 0x3a, 0xbe, 0xa9,
-	0x85, 0x54, 0x92, 0x1a, 0xe6, 0x24, 0x8a, 0x13, 0x05, 0xce, 0x94, 0xf2, 0x69, 0x38, 0x49, 0x49,
-	0x47, 0x2c, 0x9b, 0x92, 0x9e, 0xbc, 0x66, 0xa9, 0x9e, 0xfa, 0x45, 0x00, 0xcf, 0x26, 0xea, 0x2d,
-	0x45, 0x09, 0x68, 0xb7, 0x47, 0x85, 0xf4, 0x9b, 0xe0, 0xff, 0xcc, 0xad, 0xe0, 0x2c, 0x11, 0x14,
-	0x1e, 0x01, 0x47, 0x4b, 0xaf, 0xdb, 0x5b, 0xf6, 0xfe, 0xdf, 0x7a, 0x09, 0xe5, 0xaa, 0x22, 0x4d,
-	0x68, 0xfc, 0x1a, 0xbc, 0x56, 0xac, 0xc0, 0x80, 0xfd, 0x0b, 0x50, 0x54, 0x6a, 0xcd, 0x58, 0xc8,
-	0x16, 0x13, 0xd2, 0xb8, 0xc0, 0x13, 0x00, 0xbe, 0xbb, 0x18, 0xc9, 0x2a, 0xd2, 0xc5, 0xd1, 0xa4,
-	0x38, 0xd2, 0x6b, 0x35, 0xc5, 0x51, 0x8b, 0x44, 0xd4, 0x70, 0x83, 0x29, 0xa6, 0xff, 0x68, 0x83,
-	0xb5, 0x9c, 0x81, 0x09, 0x8c, 0x81, 0xa3, 0xdb, 0x2e, 0x0d, 0x7c, 0xac, 0xc6, 0x81, 0x81, 0xc1,
-	0xd3, 0x99, 0x48, 0x05, 0x45, 0xda, 0x5b, 0x19, 0x49, 0xbb, 0x4d, 0x67, 0xaa, 0x7f, 0xd8, 0xe0,
-	0xb7, 0xca, 0x04, 0x25, 0x70, 0xf4, 0x56, 0xe0, 0xf6, 0x9c, 0xfb, 0xfc, 0xea, 0xdd, 0x9d, 0x9f,
-	0x41, 0xda, 0xca, 0xaf, 0xdc, 0x3f, 0xbf, 0x3f, 0x15, 0x36, 0x60, 0x09, 0x2f, 0x7e, 0x7b, 0x78,
-	0x07, 0xfe, 0x64, 0xdb, 0x80, 0xbb, 0x8b, 0x25, 0x73, 0xcf, 0xe1, 0x56, 0x57, 0xc1, 0x8c, 0xb7,
-	0xaf, 0xbc, 0xcb, 0xd0, 0x9d, 0xf3, 0x6e, 0xc7, 0x42, 0x5e, 0x72, 0x26, 0x64, 0xa3, 0x36, 0x18,
-	0x79, 0xf6, 0x70, 0xe4, 0xd9, 0x6f, 0x23, 0xcf, 0x7e, 0x18, 0x7b, 0xd6, 0x70, 0xec, 0x59, 0x2f,
-	0x63, 0xcf, 0x3a, 0x2f, 0x65, 0xe0, 0xdb, 0x2f, 0x9a, 0xec, 0x73, 0x2a, 0x42, 0x47, 0xfd, 0x90,
-	0x87, 0x9f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x73, 0x23, 0x59, 0x95, 0x5c, 0x03, 0x00, 0x00,
+	// 459 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0x3f, 0x8f, 0xd3, 0x30,
+	0x14, 0x8f, 0xef, 0x20, 0x42, 0x8f, 0x01, 0xc9, 0x14, 0x02, 0xa1, 0xca, 0xa1, 0x70, 0xdc, 0x9d,
+	0x18, 0x6c, 0xf5, 0x10, 0x1f, 0x80, 0x1b, 0x60, 0xb9, 0xa1, 0x64, 0x64, 0x00, 0x1c, 0x64, 0x85,
+	0x48, 0x6d, 0x9c, 0xc6, 0x2e, 0xa2, 0x03, 0x0b, 0x82, 0x1d, 0xc4, 0xc4, 0x37, 0xea, 0x58, 0x89,
+	0x85, 0x09, 0xa1, 0x96, 0x0f, 0x82, 0x62, 0x3b, 0x2d, 0x49, 0xfa, 0x67, 0xe9, 0xe4, 0xc8, 0xef,
+	0xf7, 0x7e, 0x7f, 0xf2, 0x9e, 0x0c, 0xf7, 0x06, 0x69, 0x5c, 0xb0, 0x62, 0x42, 0xab, 0x73, 0x34,
+	0xe6, 0xc5, 0x84, 0xe4, 0x85, 0x50, 0x02, 0xdf, 0xb0, 0x97, 0xc4, 0x9e, 0x7e, 0x27, 0x11, 0x89,
+	0xd0, 0x35, 0x5a, 0x7e, 0x19, 0x98, 0xdf, 0x4d, 0x84, 0x48, 0x06, 0x9c, 0xb2, 0x3c, 0xa5, 0x2c,
+	0xcb, 0x84, 0x62, 0x2a, 0x15, 0x99, 0xb4, 0xd5, 0x47, 0x6f, 0x85, 0x1c, 0x0a, 0x49, 0x63, 0x26,
+	0xb9, 0x61, 0xa7, 0xef, 0x7b, 0x31, 0x57, 0xac, 0x47, 0x73, 0x96, 0xa4, 0x99, 0x06, 0x57, 0x4c,
+	0x4d, 0x37, 0x39, 0x2b, 0xd8, 0x50, 0x6e, 0xaa, 0xb2, 0xb1, 0x7a, 0x27, 0x0a, 0x53, 0x0d, 0x3b,
+	0x80, 0x5f, 0x94, 0xec, 0x7d, 0xdd, 0x12, 0xf1, 0xd1, 0x98, 0x4b, 0x15, 0x5e, 0xc2, 0xcd, 0xda,
+	0xad, 0xcc, 0x45, 0x26, 0x39, 0x7e, 0x02, 0xae, 0xa1, 0xbe, 0x83, 0xee, 0xa3, 0xb3, 0xeb, 0xe7,
+	0x1e, 0x69, 0x44, 0x25, 0xa6, 0xe1, 0xe2, 0xca, 0xf4, 0xf7, 0x91, 0x13, 0x59, 0x70, 0xf8, 0x0a,
+	0x3a, 0x9a, 0xed, 0x32, 0x95, 0xaa, 0x2f, 0xa4, 0xb2, 0x2a, 0xf8, 0x19, 0xc0, 0x2a, 0x8b, 0xa5,
+	0x3c, 0x21, 0x26, 0x38, 0x29, 0x83, 0x13, 0xf3, 0x5b, 0x6d, 0x70, 0xd2, 0x67, 0x09, 0xb7, 0xbd,
+	0xd1, 0x7f, 0x9d, 0xe1, 0x37, 0x04, 0xb7, 0x1a, 0x02, 0xd6, 0x30, 0x05, 0xd7, 0xa4, 0xdd, 0x68,
+	0xf8, 0xa9, 0x2e, 0x47, 0x16, 0x86, 0x9f, 0xd7, 0x2c, 0x1d, 0xe8, 0xa6, 0xd3, 0x9d, 0x96, 0x8c,
+	0x5a, 0xcd, 0xd3, 0x1b, 0xb8, 0xbd, 0xb4, 0x64, 0x35, 0xf6, 0x9c, 0xfa, 0x07, 0x02, 0xaf, 0x25,
+	0xb1, 0x1a, 0xd4, 0x32, 0xf7, 0xe1, 0x96, 0xdc, 0xd5, 0xa0, 0xf6, 0x9c, 0xfe, 0xfc, 0xf3, 0x21,
+	0x5c, 0xd5, 0xde, 0xb0, 0x02, 0xd7, 0xec, 0x04, 0x7e, 0xd0, 0xf2, 0xd0, 0x5e, 0x3c, 0xff, 0x78,
+	0x3b, 0xc8, 0x48, 0x85, 0x47, 0x9f, 0x7e, 0xfe, 0xfd, 0x7e, 0x70, 0x17, 0x7b, 0x74, 0xfd, 0xe6,
+	0xe3, 0x8f, 0x70, 0xad, 0xda, 0x05, 0xfc, 0x70, 0x3d, 0x65, 0x63, 0x19, 0xfd, 0x93, 0x5d, 0x30,
+	0xab, 0x1d, 0x6a, 0xed, 0x2e, 0xf6, 0x5b, 0xda, 0x83, 0x54, 0xaa, 0xd7, 0x79, 0x29, 0xf9, 0x05,
+	0x01, 0xac, 0xa6, 0x82, 0x4f, 0x37, 0x53, 0xd7, 0x56, 0xc3, 0x3f, 0xdb, 0x0d, 0xb4, 0x2e, 0x8e,
+	0xb5, 0x8b, 0x00, 0x77, 0xd7, 0xbb, 0x30, 0xf3, 0xbc, 0xe8, 0x4d, 0xe7, 0x01, 0x9a, 0xcd, 0x03,
+	0xf4, 0x67, 0x1e, 0xa0, 0xaf, 0x8b, 0xc0, 0x99, 0x2d, 0x02, 0xe7, 0xd7, 0x22, 0x70, 0x5e, 0x7a,
+	0x15, 0xfc, 0xc3, 0xb2, 0x51, 0x4d, 0x72, 0x2e, 0x63, 0x57, 0x3f, 0x0b, 0x8f, 0xff, 0x05, 0x00,
+	0x00, 0xff, 0xff, 0x54, 0xca, 0x65, 0xaf, 0xe2, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -263,6 +365,8 @@ type QueryClient interface {
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
 	// Queries a list of ListPost items.
 	ListPost(ctx context.Context, in *QueryListPostRequest, opts ...grpc.CallOption) (*QueryListPostResponse, error)
+	// Queries a list of ListAuthor items.
+	ListAuthor(ctx context.Context, in *QueryListAuthorRequest, opts ...grpc.CallOption) (*QueryListAuthorResponse, error)
 }
 
 type queryClient struct {
@@ -291,12 +395,23 @@ func (c *queryClient) ListPost(ctx context.Context, in *QueryListPostRequest, op
 	return out, nil
 }
 
+func (c *queryClient) ListAuthor(ctx context.Context, in *QueryListAuthorRequest, opts ...grpc.CallOption) (*QueryListAuthorResponse, error) {
+	out := new(QueryListAuthorResponse)
+	err := c.cc.Invoke(ctx, "/library.library.Query/ListAuthor", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
 	// Queries a list of ListPost items.
 	ListPost(context.Context, *QueryListPostRequest) (*QueryListPostResponse, error)
+	// Queries a list of ListAuthor items.
+	ListAuthor(context.Context, *QueryListAuthorRequest) (*QueryListAuthorResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -308,6 +423,9 @@ func (*UnimplementedQueryServer) Params(ctx context.Context, req *QueryParamsReq
 }
 func (*UnimplementedQueryServer) ListPost(ctx context.Context, req *QueryListPostRequest) (*QueryListPostResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPost not implemented")
+}
+func (*UnimplementedQueryServer) ListAuthor(ctx context.Context, req *QueryListAuthorRequest) (*QueryListAuthorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAuthor not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -350,6 +468,24 @@ func _Query_ListPost_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_ListAuthor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryListAuthorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).ListAuthor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/library.library.Query/ListAuthor",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).ListAuthor(ctx, req.(*QueryListAuthorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "library.library.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -361,6 +497,10 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListPost",
 			Handler:    _Query_ListPost_Handler,
+		},
+		{
+			MethodName: "ListAuthor",
+			Handler:    _Query_ListAuthor_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -505,6 +645,90 @@ func (m *QueryListPostResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryListAuthorRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryListAuthorRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryListAuthorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryListAuthorResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryListAuthorResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryListAuthorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Author) > 0 {
+		for iNdEx := len(m.Author) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Author[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -558,6 +782,38 @@ func (m *QueryListPostResponse) Size() (n int) {
 	if m.Author != nil {
 		l = m.Author.Size()
 		n += 1 + l + sovQuery(uint64(l))
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryListAuthorRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryListAuthorResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Author) > 0 {
+		for _, e := range m.Author {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
 	}
 	if m.Pagination != nil {
 		l = m.Pagination.Size()
@@ -853,6 +1109,212 @@ func (m *QueryListPostResponse) Unmarshal(dAtA []byte) error {
 				m.Author = &Author{}
 			}
 			if err := m.Author.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryListAuthorRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryListAuthorRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryListAuthorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryListAuthorResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryListAuthorResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryListAuthorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Author", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Author = append(m.Author, Author{})
+			if err := m.Author[len(m.Author)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

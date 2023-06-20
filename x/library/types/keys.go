@@ -19,9 +19,9 @@ func KeyPrefix(p string) []byte {
 }
 
 const (
-    AuthorKey = "Author/value/"
+	AuthorKey = "Author/value/"
 )
 
 const (
-    AuthorCountKey = "Author/count/"
+	AuthorCountKey = "Author/count/"
 )

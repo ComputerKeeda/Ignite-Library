@@ -24,6 +24,12 @@ service Query {
     option (google.api.http).get = "/library/library/list_post";
   
   }
+  
+  // Queries a list of ListAuthor items.
+  rpc ListAuthor (QueryListAuthorRequest) returns (QueryListAuthorResponse) {
+    option (google.api.http).get = "/library/library/list_author";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -41,6 +47,15 @@ message QueryListPostRequest {
 
 message QueryListPostResponse {
   Author                                 author     = 1;
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryListAuthorRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryListAuthorResponse {
+  repeated Author author = 1 [(gogoproto.nullable) = false];
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
