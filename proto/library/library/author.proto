@@ -1,0 +1,11 @@
+syntax = "proto3";
+package library.library;
+
+option go_package = "library/x/library/types";
+
+message Author {
+  
+  string name = 1; 
+  uint64 id = 2; 
+  string bookname = 3; 
+}
