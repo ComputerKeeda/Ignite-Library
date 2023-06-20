@@ -1,0 +1,7 @@
+syntax = "proto3";
+package library.library;
+
+option go_package = "library/x/library/types";
+
+// Msg defines the Msg service.
+service Msg {}

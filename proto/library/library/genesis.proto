@@ -1,0 +1,12 @@
+syntax = "proto3";
+package library.library;
+
+import "gogoproto/gogo.proto";
+import "library/library/params.proto";
+
+option go_package = "library/x/library/types";
+
+// GenesisState defines the library module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}
