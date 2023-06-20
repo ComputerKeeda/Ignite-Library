@@ -1,7 +1,20 @@
 syntax = "proto3";
+
 package library.library;
 
 option go_package = "library/x/library/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc CreateAuthor (MsgCreateAuthor) returns (MsgCreateAuthorResponse);
+}
+message MsgCreateAuthor {
+  string creator  = 1;
+  string name     = 2;
+  string bookname = 3;
+}
+
+message MsgCreateAuthorResponse {
+  uint64 id = 1;
+}
+
